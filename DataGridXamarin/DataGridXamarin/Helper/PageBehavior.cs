@@ -27,6 +27,15 @@ namespace DataGridXamarin
             button.Clicked += Button_Clicked;
         }
 
+        protected override void OnDetachingFrom(ContentPage bindable)
+        {
+            base.OnDetachingFrom(bindable);
+            button.Clicked -= Button_Clicked;
+            button = null;
+            sfDataGrid1 = null;
+            sfDataGrid2 = null;
+        }
+        
         private void Button_Clicked(object sender, EventArgs e)
         {
             // First Grid
